@@ -12,6 +12,7 @@ class World {
   tick = () => {
     // redraw the screen
     console.clear() 
+    // loop through tamagachis
     for (const t of this.tamagachis) {
       t.heartbeat()
       t.draw(this.time)
@@ -19,31 +20,15 @@ class World {
     // check if all tamagachis are dead
     if (this.tamagachis.every(t => !t.isAlive())) {
       clearInterval(this.interval)
-      console.log("All Tamagachis died :(")
+      console.log(":( Your Tamagachis have died")
     }
     this.time++
   }
 }
 
-World.prototype.start = async function() {
-  // try {
-  //   const { num } = await inquirer.prompt([
-  //     {
-  //       type: "input",
-  //       message: "Tamagachi name",
-  //       name: "name"
-  //     },
-  //     {
-  //       type: "input",
-  //       message: "Tamagachi name",
-  //       name: "name"
-  //     }
-  //   ])
-  //   this.tamagachi = new Tamagachi(name)
-  // } catch(err) {
-  //   console.log(err)
-  // }
-  this.tamagachis = [ new Tamagachi('Lobo') ]
+World.prototype.bigBang = async function() {
+  // A tamagachi is born
+  this.tamagachis = [ new Tamagachi('Tama') ]
   clearInterval(this.interval)
   this.interval = setInterval(this.tick, 1000)
 }
@@ -56,7 +41,7 @@ World.prototype.promptActions = async function() {
       name: "action"
     }
   ])
-  console.log (action)
+  console.log(action)
 }
 
 export default World
