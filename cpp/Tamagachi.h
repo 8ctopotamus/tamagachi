@@ -10,6 +10,7 @@ class Tamagachi {
     void draw();
     bool heartbeat();
     void printStats();
+    bool isAlive();
   private:
     string name{};
     int age{0};

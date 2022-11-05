@@ -9,16 +9,21 @@ Tamagachi::Tamagachi(string n):
 
 }
 
-
 bool Tamagachi::heartbeat() {
+  age++;
+  hp--;
   return true;
 }
 
-void Tamagachi::printStats() {
-  printf(name.c_str());
-  // cout << name.c_str() << endl;
+bool Tamagachi::isAlive() {
+  return hp > 0;
 }
 
 void Tamagachi::draw() {
 
+}
+
+void Tamagachi::printStats() {
+  cout << name.c_str() << endl;
+  cout << "HP: " + hp << endl;
 }
