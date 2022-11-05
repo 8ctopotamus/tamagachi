@@ -1,13 +1,12 @@
 #include <iostream>
-#include "lib/Tamagachi.h"
+#include "Tamagachi.h"
 
 using namespace std;
 
 int main(void) {
-  Tamagachi tama{"Tama"};
+  // Tamagachi tama{"Tama"};
+  // tama.printStats();
 
-  // printf(tama.name.c_str());
-  cout << tama.name.c_str() << "\n";
-
+  printf("hello world");
   return 0;
 }
