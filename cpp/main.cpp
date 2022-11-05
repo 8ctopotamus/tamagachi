@@ -5,18 +5,27 @@
 
 using namespace std;
 
-time_t t2, t1 = clock();
+time_t time2, time1 = clock();
 
 int main(void) {
   Tamagachi tama{"Tama"};
+
   while (tama.isAlive()) {
-    t2 = clock();
-    if (t2-t1 > 1000) {
-      printf("test\n");
-      t1 = clock();
+    time2 = clock();
+    bool timelimit = time2 - time1 > 1000; // 1 sec
+    if (timelimit) {
+      system("clear");
+      time1 = clock();
+      tama.draw();
+      tama.heartbeat();
+      string test{};
+      printf("What do you want to do?");
+      cin >> test;
+      printf(test.c_str());
     }
   }
 
-  printf("hello world");
+  printf("Your tamagachi has died!");
+  getch();
   return 0;
 }

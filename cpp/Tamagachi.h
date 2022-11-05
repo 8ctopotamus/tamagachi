@@ -9,12 +9,15 @@ class Tamagachi {
     Tamagachi(string name);
     void draw();
     bool heartbeat();
-    void printStats();
     bool isAlive();
   private:
     string name{};
     int age{0};
-    int hp{0};
+    int hp{100};
+    bool sleeping{false};
+    bool _isAlive();
+    void _drawCharacter();
+    void _printStats();
 };
 
 #endif
