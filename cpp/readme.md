@@ -3,7 +3,7 @@
 ## To compile:
 `make clean`
 
-~`g++ main.cpp -o tamagachi.exe`~
+~`g++ Tamagachi.cpp main.cpp -o tamagachi.exe`~
 
 ## To run:
 `./tamagachi.exe`

@@ -5,16 +5,65 @@
 
 using namespace std;
 
-Tamagachi::Tamagachi(string n):
-  name{n}
-{
-
-}
+Tamagachi::Tamagachi(string n): 
+  name{n} 
+{}
 
 bool Tamagachi::heartbeat() {
-  age++;
-  hp--;
-  return true;
+  if (_isAlive()) {
+    int min = 0;
+    int max = 10;
+    int mood = (rand() % (max - min + 1)) + min;
+    if (mood > 9) {
+      cout << name << " wants to play!" << endl;
+      string toy;
+      cin >> toy;
+      cout << name << " likes the toy!" << toy;
+      hp += 10;
+      sleeping = false;
+    } else if (mood < 9 && mood > 4) {
+      cout << name << " is indifferent right now.";
+      sleeping = false;
+    } else {
+      if (!sleeping) {
+        cout << name << " fell asleep.";
+      } else {
+        cout << name << " is gaining energy while they sleep.";
+      }
+      sleeping = true;
+      hp++;
+    }
+    age++;
+    hp--;
+    return true;
+  }
+  return false;
+}
+
+void Tamagachi::_drawCharacter() {
+  bool tickTock = age % 2 == 0;
+  string zzz = sleeping ? "   zZzZzz..." : "";
+  string ears = "  /\\___ \\" + zzz;
+  string face = tickTock ? " ^ U ^ " : " - _ - ";
+  if (!_isAlive()) {
+    face = " x n x ";
+  } else if (sleeping) {
+    face = tickTock ? " - . - " : " - _ - ";
+  }
+  string leftArm = "/";
+  string rightArm = "\\";
+  string body = leftArm + "(" + face + ")" + rightArm;
+  string legs = "   L   L";
+  string drawing = "\n" + ears + "\n" + body + "\n" + legs + "\n";  
+  cout << drawing << endl;
+}
+
+void Tamagachi::_printStats() {
+  string sleepMsg = sleeping ? "Yes" : "No";
+  cout << "Name: " << name.c_str() << endl;
+  cout << "HP: " << to_string(hp) << endl;
+  cout << "Age: " << to_string(age) << endl;
+  cout << "Asleep: " << sleepMsg << endl;
 }
 
 bool Tamagachi::isAlive() {
@@ -28,26 +77,4 @@ void Tamagachi::draw() {
 
 bool Tamagachi::_isAlive() {
   return hp > 0;
-}
-
-void Tamagachi::_printStats() {
-  cout << "Name: " << name.c_str() << endl;
-  cout << "HP: " << to_string(hp) << endl;
-  cout << "Age: " << to_string(age) << endl;
-}
-
-void Tamagachi::_drawCharacter() {
-  bool tickTock = age % 2 == 0;
-  string ears = "  /\\___ \\\n";
-  string face = tickTock ? " ^ U ^ " : " - _ - ";
-  // string face =  ? "- . -" : ". _ .";
-  if (!_isAlive()) {
-    face = "x n x";
-  }
-  string leftArm = "/";
-  string rightArm = "\\";
-  string body = leftArm + "(" + face + ")" + rightArm + "\n";
-  string legs = "   L   L\n";
-  string drawing = "\n" + ears + body + legs + "\n";  
-  cout << drawing << endl;
 }

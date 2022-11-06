@@ -15,9 +15,11 @@ class Tamagachi {
     int age{0};
     int hp{100};
     bool sleeping{false};
+    string mood{"indifferent"};
     bool _isAlive();
     void _drawCharacter();
     void _printStats();
+    void _wantsSomething();
 };
 
 #endif

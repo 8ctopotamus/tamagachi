@@ -12,20 +12,16 @@ int main(void) {
 
   while (tama.isAlive()) {
     time2 = clock();
-    bool timelimit = time2 - time1 > 1000; // 1 sec
+    bool timelimit = time2 - time1 > 1000; // pause 1 sec
     if (timelimit) {
-      system("clear");
       time1 = clock();
-      tama.draw();
+      system("clear"); // clear screen
       tama.heartbeat();
-      string test{};
-      printf("What do you want to do?");
-      cin >> test;
-      printf(test.c_str());
+      tama.draw();
     }
   }
-
   printf("Your tamagachi has died!");
+  tama.draw();
   getch();
   return 0;
 }
