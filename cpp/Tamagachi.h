@@ -2,6 +2,7 @@
 #define TAMAGACHI_H
 
 #include <iostream>
+
 using namespace std;
 
 class Tamagachi {
@@ -15,11 +16,14 @@ class Tamagachi {
     int age{0};
     int hp{100};
     bool sleeping{false};
-    string mood{"indifferent"};
+    int mood{5};
+    int moodDuration{5};
+    string thought{"Hello!"};
     bool _isAlive();
     void _drawCharacter();
     void _printStats();
-    void _wantsSomething();
+    bool _wantsSomething();
+    int _getRandInt(int max);
 };
 
 #endif

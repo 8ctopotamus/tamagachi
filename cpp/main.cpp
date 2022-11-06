@@ -20,8 +20,7 @@ int main(void) {
       tama.draw();
     }
   }
-  printf("Your tamagachi has died!");
-  tama.draw();
+  
   getch();
   return 0;
 }
