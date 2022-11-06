@@ -6,7 +6,7 @@
 using namespace std;
 
 Tamagachi::Tamagachi(string n): 
-  name{n} 
+  name{n}
 {}
 
 bool Tamagachi::heartbeat() {
