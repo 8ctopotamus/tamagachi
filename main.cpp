@@ -1,6 +1,5 @@
 #include <iostream>
 #include <time.h>
-#include <conio.h>
 #include "Tamagachi.h"
 
 using namespace std;
@@ -21,6 +20,5 @@ int main(void) {
     }
   }
   
-  getch();
   return 0;
 }
