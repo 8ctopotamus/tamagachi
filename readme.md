@@ -1,6 +1,5 @@
 # Tamagachi - C++
-
-A `c++` Tamagachi. Eventually compiled to WASM.
+A `c++` Tamagachi. Eventually will be compiled to WASM.
 
 ## Compile to `.exe`:
 `make clean`
@@ -11,7 +10,7 @@ A `c++` Tamagachi. Eventually compiled to WASM.
 `./tamagachi.exe`
 
 ## Compile to WASM:
-`emcc Tamagachi.cpp main.cpp -o out/tamagachi.html`
+`emcc Tamagachi.cpp main.cpp -o out/index.html`
 
 ## Resources
 * [C++ language basics](https://www.w3schools.com/cpp/)

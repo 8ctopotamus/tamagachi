@@ -1,24 +1,18 @@
 #include <iostream>
-#include <time.h>
+#include <chrono>
+#include <thread>
 #include "Tamagachi.h"
 
 using namespace std;
-
-time_t time2, time1 = clock();
+using namespace std::chrono_literals;
 
 int main(void) {
   Tamagachi tama{"Tama"};
-
   while (tama.isAlive()) {
-    time2 = clock();
-    bool timelimit = time2 - time1 > 1000; // pause 1 sec
-    if (timelimit) {
-      time1 = clock();
-      system("clear"); // clear screen
-      tama.heartbeat();
-      tama.draw();
-    }
+    system("clear"); // clear screen
+    tama.heartbeat();
+    tama.draw();
+    std::this_thread::sleep_for(1s);
   }
-  
   return 0;
 }
