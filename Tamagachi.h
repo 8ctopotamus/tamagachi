@@ -19,10 +19,12 @@ class Tamagachi {
     int mood{5};
     int moodDuration{5};
     string thought{"Hello!"};
+    bool _wantsSomething{false};
+    bool _isHungry{false};
     bool _isAlive();
     void _drawCharacter();
     void _printStats();
-    bool _wantsSomething();
+    bool _promptUser();
     int _getRandInt(int max);
 };
 
